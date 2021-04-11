@@ -18,22 +18,22 @@
     shell: mvn package -f '/home/admin_vm11/boxfuse-sample-java-war-hello/pom.xml'
 
   - name: Copy war file from build host to local
-    fetch: src=/home/admin_vm11/boxfuse-sample-java-war-hello/target dest=/home/admin_vm9/boxfuse-sample-java-war-hello/target
+    fetch: src=/home/admin_vm11/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war
 
 - name: web
   hosts: web
   become: yes
 
   tasks:
-   - name: Copy war file from local to web host
-     copy: src=/home/admin_vm9/boxfuse-sample-java-war-hello/target dest=/var/lib/tomcat9/webapps
-
    - name: Ensure tomcat is present
      apt:
       name: tomcat9
       state: present
 
+   - name: Copy war file from local to web host
+     copy: src=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/var/lib/tomcat9/webapps/hello-1.0.war
+
    - name: Ensure tomcat service is started
      service:
       name: tomcat9
-      state: started
+      state: restarted
