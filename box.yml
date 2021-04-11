@@ -5,10 +5,11 @@
 
   tasks:
   - name: Ensure clone project from git
-     ansible.builtin.git:
+    git:
      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
      dest: /usr/local
      clone: yes
+     accept_hostkey: yes
 
   - name: Ensure maven is present
     apt:
