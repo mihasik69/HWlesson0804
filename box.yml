@@ -15,7 +15,7 @@
      state: present
 
   - name: Ensure maven build project
-    shell: mvn package -file "usr/home/boxfuse-sample-java-war-hello/pom.xml"
+    shell: mvn package -f /usr/home/boxfuse-sample-java-war-hello/pom.xml
     args:
       chdir: /usr/home/
 
