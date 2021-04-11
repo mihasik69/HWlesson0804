@@ -7,7 +7,7 @@
   - name: Ensure clone project from git
     git:
      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-     dest: /usr/local
+     dest: /usr/home
 
   - name: Ensure maven is present
     apt:
@@ -15,10 +15,10 @@
      state: present
 
   - name: Ensure maven build project
-    shell: mvn package -f "/home/admin_vm11/boxfuse-sample-java-war-hello/pom.xml"
+    shell: mvn package -f "usr/home/boxfuse-sample-java-war-hello/pom.xml"
 
   - name: Copy war file from build host to local
-    fetch: src=/usr/local/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war
+    fetch: src=/usr/home/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war
 
 - name: web
   hosts: web
@@ -26,7 +26,7 @@
 
   tasks:
    - name: Copy war file from local to web host
-     copy: src=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/usr/local/boxfuse-sample-java-war-hello/target/hello-1.0.war
+     copy: src=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/usr/home/boxfuse-sample-java-war-hello/target/hello-1.0.war
 
    - name: Ensure tomcat is present
      apt:
@@ -34,7 +34,7 @@
       state: present
 
    - name: Copy war file from local to webaaps
-     copy: src=/usr/local/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/usr/local/tomcat/webapps/hello-1.0.war
+     copy: src=/usr/home/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/usr/local/tomcat/webapps/hello-1.0.war
 
    - name: Ensure tomcat service is started
      service:
