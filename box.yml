@@ -7,7 +7,7 @@
   - name: Ensure clone project from git
     git:
      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-     dest: /home/admin_vm11
+     dest: /usr/home/admin_vm11
 
   - name: Ensure maven is present
     apt:
