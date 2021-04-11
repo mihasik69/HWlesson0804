@@ -1,6 +1,6 @@
 ---
-- host: build
-  name: build app
+- name: build app
+  hosts: build
   become: yes
 
   tasks:
@@ -21,7 +21,7 @@
     fetch: src=/home/admin_vm11/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/home/admin_vm10/boxfuse-sample-java-war-hello/target/hello-1.0.war
 
 - name: web
-  host: web
+  hosts: web
   become: yes
 
   tasks:
