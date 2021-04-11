@@ -5,7 +5,7 @@
 
   tasks:
   - name: Ensure clone project from git
-    git:
+     ansible.builtin.git:
      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
      dest: /usr/local
      clone: yes
