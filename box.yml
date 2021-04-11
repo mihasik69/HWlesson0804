@@ -19,6 +19,11 @@
 
   - name: Ensure maven build project
     shell: mvn package -file "/usr/home/boxfuse-sample-java-war-hello/pom.xml"
+    args:
+      chdir: /usr/home/
+    environment:
+      MAVEN_HOME: /opt/maven/
+      JAVA_HOME: /usr/java/jdk1.8.0_162
 
   - name: Copy war file from build host to local
     fetch: src=/usr/home/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war
