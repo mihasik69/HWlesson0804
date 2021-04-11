@@ -25,16 +25,13 @@
   become: yes
 
   tasks:
-   - name: Copy war file from local to web host
-     copy: src=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/home/admin_vm10/boxfuse-sample-java-war-hello/target/hello-1.0.war
-
    - name: Ensure tomcat is present
      apt:
       name: tomcat9
       state: present
 
-   - name: Copy war file from local to webaaps
-     shell: cp /home/admin_vm10/boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/hello-1.0.war
+   - name: Copy war file from local to web host
+     copy: src=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/var/lib/tomcat9/webapps/hello-1.0.war
 
    - name: Ensure tomcat service is started
      service:
