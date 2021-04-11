@@ -1,6 +1,6 @@
 ---
-- name: build app
-  host: build
+- host: build
+  name: build app
   become: yes
 
   tasks:
