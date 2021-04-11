@@ -15,7 +15,7 @@
      state: present
 
   - name: Ensure maven build project
-    shell: mvn package -f "usr/home/boxfuse-sample-java-war-hello/pom.xml"
+    shell: mvn package -f /usr/home/boxfuse-sample-java-war-hello/pom.xml
 
   - name: Copy war file from build host to local
     fetch: src=/usr/home/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war
