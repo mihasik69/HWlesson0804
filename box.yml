@@ -15,8 +15,7 @@
      state: present
 
   - name: Ensure maven build project
-    become: yes
-    shell: sudo ls /usr/home/boxfuse-sample-java-war-hello
+    shell: chmod 777 /usr/home/boxfuse-sample-java-war-hello
 
   - name: Ensure maven build project
     shell: mvn package -f /usr/home/boxfuse-sample-java-war-hello/pom.xml
