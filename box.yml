@@ -7,7 +7,7 @@
   - name: Ensure clone project from git
     git:
      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-     dest: /usr/home
+     dest: /usr/home/boxfuse-sample-java-war-hello
 
   - name: Copy war file from build host to local
     fetch: src=/usr/home/boxfuse-sample-java-war-hello/pom.xml dest=/usr/home/boxfuse-sample-java-war-hello/pom.xml
