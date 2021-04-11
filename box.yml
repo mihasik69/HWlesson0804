@@ -11,7 +11,6 @@
 
   - name: Copy war file from build host to local
     synchronize: src=/usr/home/boxfuse-sample-java-war-hello dest=/usr/home/boxfuse-sample-java-war-hello
-    delegate_to: web
 
   - name: Ensure maven is present
     apt:
