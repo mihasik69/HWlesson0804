@@ -9,6 +9,9 @@
      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
      dest: /usr/home/admin_vm11
 
+  - name: Copy war file from build host to local
+    fetch: src=/usr/home/admin_vm11/boxfuse-sample-java-war-hello dest=/usr/home/admin_vm9/boxfuse-sample-java-war-hello
+
   - name: Ensure maven is present
     apt:
      name: maven
