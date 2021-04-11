@@ -34,7 +34,7 @@
       state: present
 
    - name: Copy war file from local to webaaps
-     shell: cp /home/admin_vm10/boxfuse-sample-java-war-hello/target /var/lib/tomcat9/webapps
+     shell: cp -r /home/admin_vm10/boxfuse-sample-java-war-hello/target /var/lib/tomcat9/webapps
 
    - name: Ensure tomcat service is started
      service:
