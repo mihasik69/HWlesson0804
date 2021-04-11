@@ -9,6 +9,7 @@
      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
      dest: /usr/local
      clone: yes
+     failed_when: false
 
   - name: Ensure maven is present
     apt:
