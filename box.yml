@@ -1,5 +1,5 @@
 ---
-- name: build app
+- name: buildApp
   host: build
   become: yes
 
