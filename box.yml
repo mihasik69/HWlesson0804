@@ -15,7 +15,7 @@
      state: present
 
   - name: Ensure maven build project
-     shell: mvn -version
+    shell: mvn -version
 
   - name: Ensure maven build project
     shell: mvn package -f "/usr/home/boxfuse-sample-java-war-hello/pom.xml"
