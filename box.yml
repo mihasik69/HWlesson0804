@@ -29,8 +29,8 @@
 
    - name: Copy war file from local to web host
      synchronize:
-      src: /home/admin_vm11/boxfuse-sample-java-war-hello/target/hello-1.0.war
-      dest: /var/lib/tomcat9/webapps/hello-1.0.war
+      src: /home/admin_vm11/boxfuse-sample-java-war-hello/target
+      dest: /var/lib/tomcat9/webapps
      delegate_to: build
 
 
