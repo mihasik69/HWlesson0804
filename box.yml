@@ -17,6 +17,9 @@
   - name: Ensure maven build project
     shell: mvn package -f '/home/admin_vm11/boxfuse-sample-java-war-hello/pom.xml'
 
+  - name: Copy war file from build host to local
+    fetch: src=/home/admin_vm11/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war
+
 - name: web
   hosts: web
   become: yes
@@ -28,13 +31,9 @@
       state: present
 
    - name: Copy war file from local to web host
-     synchronize:
-      src: rsync://root@build:/home/admin_vm11/boxfuse-sample-java-war-hello/target
-      dest: /var/lib/tomcat9/webapps
-     delegate_to: build
-
+     copy: src=/home/admin_vm9/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/var/lib/tomcat9/webapps/hello-1.0.war
 
    - name: Ensure tomcat service is started
      service:
       name: tomcat9
-      state: restarted
+      state: started
