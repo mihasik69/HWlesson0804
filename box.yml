@@ -29,7 +29,7 @@
 
    - name: Copy war file from local to web host
      synchronize:
-      src: /home/admin_vm11/boxfuse-sample-java-war-hello/target
+      src: root@build:/home/admin_vm11/boxfuse-sample-java-war-hello/target
       dest: /var/lib/tomcat9/webapps
      delegate_to: build
 
